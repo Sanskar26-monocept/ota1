@@ -1,0 +1,44 @@
+{
+  "cli": {
+    "version": ">= 0.0.0"
+  },
+  "build": {
+    "base": {
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease"
+      }
+    },
+    "development": {
+      "extends": "base",
+      "channel": "development",
+      "distribution": "internal",
+      "env": {
+        "APP_VARIANT": "dev"
+      },
+      "android": {
+        "gradleCommand": ":app:assembleDebug"
+      }
+    },
+    "preview": {
+      "extends": "base",
+      "channel": "preview",
+      "distribution": "internal",
+      "env": {
+        "APP_VARIANT": "preview"
+      }
+    },
+    "staging": {
+      "extends": "base",
+      "channel": "staging",
+      "distribution": "internal",
+      "env": {
+        "APP_VARIANT": "staging"
+      }
+    },
+    "production": {
+      "extends": "base",
+      "channel": "production"
+    }
+  }
+}
